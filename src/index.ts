@@ -5,7 +5,9 @@ import { createConnection } from "typeorm";
 import config from './helpers/pgconnection';
 import 'reflect-metadata';
 import bodyParser from 'body-parser'
+import dotenv from 'dotenv';
 
+dotenv.config();
 const PORT: any = process.env.PORT || 4000;
 
 createConnection(config).then(async () => {
