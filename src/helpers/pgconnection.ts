@@ -1,4 +1,5 @@
 import { ConnectionOptions } from 'typeorm';
+import Lunch from '../entities/Lunch';
  
 const config: ConnectionOptions = {
   type: 'postgres',
@@ -8,7 +9,7 @@ const config: ConnectionOptions = {
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   entities: [
-    __dirname + '/../**/*.entity.ts',
+   Lunch
   ],
   synchronize: true,
 };
