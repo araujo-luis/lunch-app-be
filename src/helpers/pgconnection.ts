@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const config: ConnectionOptions = {
+const pgconnection: ConnectionOptions = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
   port: Number(process.env.POSTGRES_PORT),
@@ -17,4 +17,4 @@ const config: ConnectionOptions = {
   synchronize: true,
 };
 
-export default config;
+export default pgconnection;

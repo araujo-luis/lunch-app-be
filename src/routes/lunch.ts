@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import LunchController from '../controllers/lunch';
+import LunchController from '../controllers/LunchController';
 
 const router = Router();
 

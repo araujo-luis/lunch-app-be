@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import router from "./routes";
 import cors from 'cors';
 import { createConnection } from "typeorm";
-import config from './helpers/pgconnection';
+import pgconnection from './helpers/pgconnection';
 import 'reflect-metadata';
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv';
@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const PORT: any = process.env.PORT || 4000;
 
-createConnection(config).then(async () => {
+createConnection(pgconnection).then(async () => {
     const app: Application = express();
     app.use(express.json());
     app.use('/', router);
