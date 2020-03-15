@@ -6,22 +6,22 @@ class Lunch {
     public id?: number;
 
     @Column()
-    public plate_name: string | undefined;
+    public plate_name: string;
 
     @Column()
-    public plate_description: string | undefined;
+    public plate_description: string;
 
     @Column()
-    public restaurant_name: string | undefined;
+    public restaurant_name: string;
 
     @Column()
-    public category: string | undefined;
+    public category: string;
 
     @Column()
-    public price: number | undefined;
+    public price: number;
 
     @Column()
-    public plate_image: string | undefined
+    public plate_image: string;
 }
 
 export default Lunch;

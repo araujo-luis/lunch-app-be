@@ -12,7 +12,6 @@ class LunchController {
         } catch (error) {
             res.send("error" + error);
         }
-
     }
 }
 export default LunchController;

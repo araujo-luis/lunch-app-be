@@ -14,4 +14,4 @@ createConnection(config).then(async () => {
     app.use(cors());
     app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 
-}).catch(error => console.log("Connection Error: " + error)) 
+}).catch(error => console.log("Connection tet Error: " + error)) 
