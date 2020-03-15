@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { getRandomLunch } from '../controllers/lunch';
+import lunch from './lunch';
 
 const router = Router();
 
-router.get('/lunch', getRandomLunch)
+router.use('/lunch', lunch);
+
 export default router;
