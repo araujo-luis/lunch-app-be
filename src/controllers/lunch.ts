@@ -6,7 +6,7 @@ class LunchController {
 
         const lunchRepository = getRepository(Lunch);
         try {
-            const lunch = await lunchRepository.createQueryBuilder('lunch').where('lunch.id=1').getOne();
+            const lunch = await lunchRepository.createQueryBuilder('lunch').orderBy("RANDOM()").getOne();
             if (lunch) res.send(lunch);
             else res.status(404);
         } catch (error) {

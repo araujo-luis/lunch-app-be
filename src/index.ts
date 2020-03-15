@@ -4,6 +4,7 @@ import cors from 'cors';
 import { createConnection } from "typeorm";
 import config from './helpers/pgconnection';
 import 'reflect-metadata';
+import bodyParser from 'body-parser'
 
 const PORT: any = process.env.PORT || 4000;
 
@@ -12,6 +13,7 @@ createConnection(config).then(async () => {
     app.use(express.json());
     app.use('/', router);
     app.use(cors());
+    app.use(bodyParser.json());
     app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 
 }).catch(error => console.log("Connection tet Error: " + error)) 

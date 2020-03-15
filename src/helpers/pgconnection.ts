@@ -1,6 +1,6 @@
 import { ConnectionOptions } from 'typeorm';
 import Lunch from '../entities/Lunch';
- 
+
 const config: ConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
@@ -9,9 +9,9 @@ const config: ConnectionOptions = {
   password: 'admin',
   database: 'lunchdb',
   entities: [
-   Lunch
+    Lunch
   ],
   synchronize: true,
 };
- 
+
 export default config;
