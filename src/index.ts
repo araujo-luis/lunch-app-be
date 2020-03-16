@@ -13,8 +13,8 @@ const PORT: any = process.env.PORT || 4000;
 createConnection(pgconnection).then(async () => {
     const app: Application = express();
     app.use(express.json());
-    app.use('/', router);
     app.use(cors());
+    app.use('/', router);
     app.use(bodyParser.json());
     app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 
