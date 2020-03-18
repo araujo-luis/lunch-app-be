@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Lunch from '../entities/Lunch';
 import { validate } from 'class-validator';
+
 class LunchController {
     public static getRandomLunch = async (req: Request, res: Response) => {
 
@@ -29,8 +30,8 @@ class LunchController {
         lunch.plate_image = plate_image;
 
         const errors = await validate(lunch);
-        if(errors){
-            res.status(400).send({"code": "400", "status": "Validation Error. Please add all required fields " + errors });
+        if(errors.length){
+            res.status(400).send({"code": "400", "status": "Validation Error. Please add all required fields " + errors.toString() });
             return;
         }
         const lunchRepository = getRepository(Lunch);
