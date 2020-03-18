@@ -32,7 +32,7 @@ class LunchController {
         try {
             await lunchRepository.save(lunch);
         } catch (error) {
-            res.status(404).send("Error " + error);
+            res.status(404).send("Error request " + error);
 
         }
         res.status(201).send({"code": "01", "status": "Created"});

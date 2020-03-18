@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/', LunchController.getRandomLunch);
 
-router.get('', LunchController.createLunch);
+router.post('', LunchController.createLunch);
 
 export default router;
