@@ -10,14 +10,14 @@ class LunchController {
             if (lunch) res.send(lunch);
             else res.status(404);
         } catch (error) {
-            res.send("error" + error);
+            res.status(404).send("error" + error);
         }
     }
 
-    public static createLunch = async(req: Request, res: Response) => {
+    public static createLunch = async (req: Request, res: Response) => {
 
         const { plate_name, plate_description, restaurant_name, category, price, plate_image } = req.body;
-        
+
         const lunch = new Lunch();
 
         lunch.plate_name = plate_name;
@@ -28,6 +28,14 @@ class LunchController {
         lunch.plate_image = plate_image;
 
         const lunchRepository = getRepository(Lunch);
+
+        try {
+            await lunchRepository.save(lunch);
+        } catch (error) {
+            res.status(404).send("Error " + error);
+
+        }
+        res.status(201).send({"code": "01", "status": "Created"});
 
     }
 }
