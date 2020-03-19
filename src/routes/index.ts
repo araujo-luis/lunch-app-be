@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import lunch from './lunch';
+import lunch from './LunchRoute';
 
 const router = Router();
 
