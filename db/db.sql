@@ -1,4 +1,4 @@
-CREATE DATABASE lunchdb;
+SELECT 'CREATE DATABASE lunchdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'lunchdb');
 
 CREATE TABLE lunchs(
     id SERIAL PRIMARY KEY,
