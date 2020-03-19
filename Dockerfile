@@ -1,8 +1,7 @@
-FROM node:12
+FROM node:latest
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY . .
 RUN npm install
 RUN npm run build
-COPY ./build .
 EXPOSE 4000
-CMD [ "node", "index.js" ]
+CMD [ "node", "./build/index.js" ]

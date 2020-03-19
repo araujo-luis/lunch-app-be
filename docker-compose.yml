@@ -1,0 +1,29 @@
+version: "3"
+services:
+  lunch_backend:
+    container_name: "lunch_backend"
+    build: ./lunch-app-be/
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: "postgres:12"
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+    - ./lunch-app-be/db/db.sql:/docker-entrypoint-initdb.d/init.sql
+
+  lunch_frontend:
+    container_name: "lunch_frontend"
+    build: ./lunch-app-fe/
+    ports:
+      - "80:80"
+    depends_on:
+      - lunch_backend
+
+#  docker run -d -p 5432:5432 --env POSTGRES_PASSWORD=postgres --env POSTGRES_DB=lunchs postgres
