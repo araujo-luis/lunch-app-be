@@ -1,11 +1,11 @@
 CREATE TABLE lunchs(
     id SERIAL PRIMARY KEY,
-    plate_name VARCHAR(255),
-    plate_description TEXT,
-    restaurant_name VARCHAR(255),
-    category VARCHAR(255),
-    price float,
-    plate_image TEXT
+    plate_name VARCHAR(255) NOT NULL,
+    plate_description TEXT NOT NULL,
+    restaurant_name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    price float NOT NULL,
+    plate_image TEXT NOT NULL
 );
 
 INSERT INTO lunchs (plate_name, plate_description, restaurant_name, category, price, plate_image) VALUES('Pork and Asparagus Stir-Fry', 'A Sichuan-inspired stir-fry of blistered yet snappy asparagus and crispy pork in an aromatic sauce from Smitten Kitchen’s Deb Perelman. We jump on asparagus the second we see it at the market this time of year, but green beans, snap peas, or any other crisp green spring vegetable would also be great here. ','Bon appétit', 'pork', 189, 'https://assets.bonappetit.com/photos/5e5e82147cab300008eef67b/16:9/w_2560,c_limit/Picky-Eaters-Pork-Asparagus-Stir-Fry-Recipe.jpg');
