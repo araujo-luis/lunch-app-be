@@ -12,7 +12,7 @@ class LunchController {
             if (lunch) res.send(lunch);
             else res.status(404);
         } catch (error) {
-            res.status(404).send({"code": "404", "status": "Not found"});
+            res.status(404).send({ "code": "404", "status": "Not found" });
         }
     }
 
@@ -30,8 +30,8 @@ class LunchController {
         lunch.plate_image = plate_image;
 
         const errors = await validate(lunch);
-        if(errors.length){
-            res.status(400).send({"code": "400", "status": "Validation Error. Please add all required fields " + errors.toString() });
+        if (errors.length) {
+            res.status(400).send({ "code": "400", "status": "Validation Error. Please add all required fields " + errors.toString() });
             return;
         }
         const lunchRepository = getRepository(Lunch);
@@ -39,10 +39,10 @@ class LunchController {
         try {
             await lunchRepository.save(lunch);
         } catch (error) {
-            res.status(404).send({"code": "404", "status": "Creation process error"});
+            res.status(404).send({ "code": "404", "status": "Creation process error" });
 
         }
-        res.status(201).send({"code": "201", "status": "Created"});
+        res.status(201).send({ "code": "201", "status": "Created" });
 
     }
 }
